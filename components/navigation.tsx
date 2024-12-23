@@ -113,6 +113,40 @@ export function Navigation() {
             </div>
           </motion.div>
         )}
+        {/* Schema.org structured data for local business */}
+<script type="application/ld+json">
+  {JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "SportsActivityLocation",
+    "name": "Arena Zero Paintball",
+    "image": "https://www.arenazero.com/logo.png",
+    "description": "La mejor experiencia de paintball en el Valle de Calamuchita",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Ruta Provincial 5, Km 78",
+      "addressLocality": "Santa Rosa de Calamuchita",
+      "addressRegion": "Córdoba",
+      "postalCode": "5196",
+      "addressCountry": "AR"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": -32.0667,
+      "longitude": -64.5333
+    },
+    "telephone": "+543546545506",
+    "url": "https://www.arenazero.com",
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Saturday", "Sunday"],
+        "opens": "10:00",
+        "closes": "18:00"
+      }
+    ],
+    "priceRange": "$$"
+  })}
+</script>
       </div>
     </nav>
   )
