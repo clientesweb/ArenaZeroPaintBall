@@ -27,18 +27,9 @@ const heroImages = [
 ]
 
 const features = [
-  {
-    icon: Target,
-    text: "Precisión"
-  },
-  {
-    icon: Users,
-    text: "Trabajo en Equipo"
-  },
-  {
-    icon: Trophy,
-    text: "Victoria"
-  }
+  { icon: Target, text: "Precisión" },
+  { icon: Users, text: "Trabajo en Equipo" },
+  { icon: Trophy, text: "Victoria" }
 ]
 
 export function Hero() {
@@ -47,11 +38,9 @@ export function Hero() {
 
   useEffect(() => {
     if (!isAutoPlaying) return
-    
     const timer = setInterval(() => {
       setCurrentImage((prev) => (prev + 1) % heroImages.length)
     }, 5000)
-    
     return () => clearInterval(timer)
   }, [isAutoPlaying])
 
@@ -59,7 +48,7 @@ export function Hero() {
 
   return (
     <section className="relative h-screen w-full overflow-hidden">
-      {/* Slider */}
+      {/* Image Slider */}
       <AnimatePresence initial={false} mode="wait">
         <motion.div
           key={currentImage}
@@ -80,94 +69,85 @@ export function Hero() {
         </motion.div>
       </AnimatePresence>
 
-      {/* Semi-transparent overlay for better text readability */}
-      <div className="absolute inset-0 bg-black/30" />
+      {/* Content Overlay */}
+      <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col items-center justify-center px-4">
+        <motion.h1 
+          className={`${militaryFont.className} text-6xl md:text-8xl text-white mb-6 tracking-wider text-center`}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2 }}
+        >
+          ARENA ZERO
+          <span className="block text-green-500">PAINTBALL</span>
+        </motion.h1>
 
-      {/* Content */}
-      <div className="relative z-10 flex h-full flex-col items-center justify-center px-4">
-        <div className="text-center">
-          {/* Title */}
-          <motion.h1 
-            className={`${militaryFont.className} text-6xl md:text-8xl text-white mb-6 tracking-wider`}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-          >
-            ARENA ZERO
-            <span className="block text-green-500">PAINTBALL</span>
-          </motion.h1>
+        <motion.div 
+          className="flex justify-center gap-8 mb-8"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.4 }}
+        >
+          {features.map((feature, index) => (
+            <div key={index} className="flex flex-col items-center text-white">
+              <feature.icon className="w-8 h-8 mb-2" />
+              <span className="text-sm font-semibold">{feature.text}</span>
+            </div>
+          ))}
+        </motion.div>
 
-          {/* Features */}
-          <motion.div 
-            className="flex justify-center gap-8 mb-8"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4 }}
-          >
-            {features.map((feature, index) => (
-              <div key={index} className="flex flex-col items-center text-white">
-                <feature.icon className="w-8 h-8 mb-2" />
-                <span className="text-sm font-semibold">{feature.text}</span>
-              </div>
-            ))}
-          </motion.div>
-
-          {/* Slide Content */}
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={currentImage}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              className="mb-8"
-            >
-              <h2 className="text-white text-3xl md:text-4xl font-bold mb-2">
-                {heroImages[currentImage].title}
-              </h2>
-              <p className="text-gray-200 text-xl">
-                {heroImages[currentImage].subtitle}
-              </p>
-            </motion.div>
-          </AnimatePresence>
-
-          {/* CTA Button */}
+        <AnimatePresence mode="wait">
           <motion.div
+            key={currentImage}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6 }}
+            exit={{ opacity: 0, y: -20 }}
+            className="mb-8 text-center"
           >
-            <Button
-              asChild
-              size="lg"
-              className="bg-green-600 hover:bg-green-700 text-white font-bold px-8 py-6 text-xl rounded-full shadow-lg transform hover:scale-105 transition-all duration-300 group"
-            >
-              <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
-                ¡RESERVA AHORA!
-                <ChevronRight className="w-5 h-5 transform group-hover:translate-x-1 transition-transform" />
-              </a>
-            </Button>
+            <h2 className="text-white text-3xl md:text-4xl font-bold mb-2">
+              {heroImages[currentImage].title}
+            </h2>
+            <p className="text-gray-200 text-xl">
+              {heroImages[currentImage].subtitle}
+            </p>
           </motion.div>
-        </div>
+        </AnimatePresence>
 
-        {/* Image Navigation */}
-        <div className="absolute bottom-8 left-0 right-0">
-          <div className="flex justify-center gap-4">
-            {heroImages.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => {
-                  setCurrentImage(index)
-                  setIsAutoPlaying(false)
-                }}
-                className={`w-16 h-2 rounded-full transition-all duration-300 ${
-                  index === currentImage 
-                    ? 'bg-green-500 w-24' 
-                    : 'bg-white/50 hover:bg-white/75'
-                }`}
-                aria-label={`Ver imagen ${index + 1}`}
-              />
-            ))}
-          </div>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6 }}
+        >
+          <Button
+            asChild
+            size="lg"
+            className="bg-green-600 hover:bg-green-700 text-white font-bold px-8 py-6 text-xl rounded-full shadow-lg transform hover:scale-105 transition-all duration-300 group"
+          >
+            <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+              ¡RESERVA AHORA!
+              <ChevronRight className="w-5 h-5 transform group-hover:translate-x-1 transition-transform" />
+            </a>
+          </Button>
+        </motion.div>
+      </div>
+
+      {/* Image Navigation */}
+      <div className="absolute bottom-8 left-0 right-0">
+        <div className="flex justify-center gap-4">
+          {heroImages.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => {
+                setCurrentImage(index)
+                setIsAutoPlaying(false)
+              }}
+              className={`w-16 h-2 rounded-full transition-all duration-300 ${
+                index === currentImage 
+                  ? 'bg-green-500 w-24' 
+                  : 'bg-white/50 hover:bg-white/75'
+              }`}
+              aria-label={`Ver imagen ${index + 1}`}
+            />
+          ))}
         </div>
       </div>
     </section>
