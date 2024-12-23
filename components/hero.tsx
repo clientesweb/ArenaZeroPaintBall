@@ -8,9 +8,9 @@ import Image from 'next/image'
 import { WHATSAPP_NUMBER, WHATSAPP_MESSAGE } from '../utils/constants'
 
 const heroImages = [
-  '/paintball-action-1.jpg',
-  '/paintball-action-2.jpg',
-  '/paintball-action-3.jpg',
+  'https://images.unsplash.com/photo-1555072956-7758afb20e8f?auto=format&fit=crop&q=80',  // Action shot with players
+  'https://images.unsplash.com/photo-1551892589-865f69869476?auto=format&fit=crop&q=80',  // Close up tactical shot
+  'https://images.unsplash.com/photo-1610140752669-c69e7e09367c?auto=format&fit=crop&q=80'   // Team formation shot
 ]
 
 export function Hero() {
@@ -26,13 +26,13 @@ export function Hero() {
   const whatsappUrl = `https://api.whatsapp.com/send/?phone=${WHATSAPP_NUMBER}&text=${encodeURIComponent(WHATSAPP_MESSAGE)}`
 
   return (
-    <div className="relative h-screen overflow-hidden">
+    <div className="relative h-[90vh] overflow-hidden">
       {/* Image Slider */}
-      <AnimatePresence initial={false}>
+      <AnimatePresence initial={false} mode="wait">
         <motion.div
           key={currentImage}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
+          initial={{ opacity: 0, scale: 1.1 }}
+          animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 1 }}
           className="absolute inset-0 w-full h-full"
@@ -40,16 +40,15 @@ export function Hero() {
           <Image
             src={heroImages[currentImage]}
             alt={`Paintball action ${currentImage + 1}`}
-            layout="fill"
-            objectFit="cover"
-            quality={100}
+            fill
+            className="object-cover object-center"
             priority
+            quality={100}
           />
+          {/* Gradient Overlay for better text readability */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/70" />
         </motion.div>
       </AnimatePresence>
-
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-black bg-opacity-50" />
 
       {/* Content */}
       <div className="relative z-10 h-full flex flex-col items-center justify-center text-white text-center px-4">
@@ -57,12 +56,13 @@ export function Hero() {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.5 }}
+          className="max-w-4xl mx-auto"
         >
-          <h1 className={`${militaryFont.className} text-6xl md:text-8xl mb-6 tracking-wider`}>
+          <h1 className={`${militaryFont.className} text-6xl md:text-8xl mb-6 tracking-wider drop-shadow-lg`}>
             ARENA ZERO
-            <span className="block text-green-500">PAINTBALL</span>
+            <span className="block text-green-500 text-shadow">PAINTBALL</span>
           </h1>
-          <p className="text-2xl md:text-4xl mb-12 font-bold">
+          <p className="text-2xl md:text-4xl mb-12 font-bold text-shadow-lg">
             ADRENALINA • ESTRATEGIA • VICTORIA
           </p>
           <Button
@@ -80,11 +80,15 @@ export function Hero() {
       {/* Image Indicators */}
       <div className="absolute bottom-8 left-0 right-0 flex justify-center space-x-4">
         {heroImages.map((_, index) => (
-          <div
+          <button
             key={index}
-            className={`w-3 h-3 rounded-full ${
-              index === currentImage ? 'bg-green-500' : 'bg-white bg-opacity-50'
+            onClick={() => setCurrentImage(index)}
+            className={`w-3 h-3 rounded-full transition-all duration-300 ${
+              index === currentImage 
+                ? 'bg-green-500 scale-125' 
+                : 'bg-white bg-opacity-50 hover:bg-opacity-75'
             }`}
+            aria-label={`Ver imagen ${index + 1}`}
           />
         ))}
       </div>
