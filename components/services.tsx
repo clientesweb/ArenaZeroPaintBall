@@ -54,13 +54,13 @@ export function Services() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+        <div className="space-y-16">
           {services.map((service, index) => (
             <div
               key={index}
-              className="bg-white rounded-lg shadow-lg overflow-hidden hover:transform hover:-translate-y-2 transition-transform duration-300"
+              className={`flex flex-col ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} items-center bg-white rounded-lg shadow-lg overflow-hidden`}
             >
-              <div className="relative h-48">
+              <div className="md:w-1/2 h-64 md:h-auto relative">
                 <Image
                   src={service.image}
                   alt={service.title}
@@ -68,12 +68,14 @@ export function Services() {
                   objectFit="cover"
                 />
               </div>
-              <div className="p-6">
-                <service.icon className="w-12 h-12 text-[#006400] mb-4 mx-auto" />
-                <h3 className={`${militaryFont.className} text-xl mb-4 text-center`}>
-                  {service.title}
-                </h3>
-                <p className="text-gray-600 text-center">
+              <div className="md:w-1/2 p-8">
+                <div className="flex items-center mb-4">
+                  <service.icon className="w-8 h-8 text-[#006400] mr-4" />
+                  <h3 className={`${militaryFont.className} text-2xl`}>
+                    {service.title}
+                  </h3>
+                </div>
+                <p className="text-gray-600">
                   {service.description}
                 </p>
               </div>
