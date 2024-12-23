@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import { militaryFont } from '../utils/fonts'
-import { Button } from '../components/ui/button'
+import { Button } from '@/components/ui/button'
 import { motion, AnimatePresence } from 'framer-motion'
 import Image from 'next/image'
 import { WHATSAPP_NUMBER, WHATSAPP_MESSAGE } from '../utils/constants'
