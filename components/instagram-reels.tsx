@@ -2,9 +2,9 @@ import { militaryFont } from '../utils/fonts'
 import { Instagram } from 'lucide-react'
 
 const reels = [
-  "https://www.instagram.com/reel/ABC123/",
-  "https://www.instagram.com/reel/DEF456/",
-  "https://www.instagram.com/reel/GHI789/"
+  "https://www.instagram.com/reel/DDqAxurOGDy",
+  "https://www.instagram.com/reel/DDXm68NSD3m",
+  "https://www.instagram.com/reel/DChkmaMyi8Y"
 ]
 
 export function InstagramReels() {
