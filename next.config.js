@@ -5,6 +5,10 @@ const nextConfig = {
   images: {
     domains: ['images.unsplash.com'],
   },
+  experimental: {
+    // Enable build cache
+    incrementalCacheHandlerPath: require.resolve('./cache-handler.js'),
+  },
 }
 
 module.exports = nextConfig
