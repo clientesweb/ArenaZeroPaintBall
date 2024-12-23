@@ -115,7 +115,6 @@ export function Hero() {
                 priority
                 quality={100}
               />
-              <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-transparent to-black/70" />
             </motion.div>
           </AnimatePresence>
         </div>
@@ -132,14 +131,14 @@ export function Hero() {
               {/* Main Title */}
               <div className="mb-6">
                 <motion.h1 
-                  className={`${militaryFont.className} text-6xl md:text-8xl text-white tracking-wider`}
+                  className={`${militaryFont.className} text-6xl md:text-8xl text-white tracking-wider drop-shadow-[0_5px_5px_rgba(0,0,0,0.7)]`}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.2 }}
                 >
                   ARENA ZERO
                   <motion.span 
-                    className="block text-green-500 text-shadow"
+                    className="block text-green-500 drop-shadow-[0_5px_5px_rgba(0,0,0,0.7)]"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.4 }}
@@ -157,7 +156,7 @@ export function Hero() {
                 transition={{ duration: 0.5, delay: 0.6 }}
               >
                 {features.map((feature, index) => (
-                  <div key={index} className="flex flex-col items-center text-white">
+                  <div key={index} className="flex flex-col items-center text-white drop-shadow-[0_2px_2px_rgba(0,0,0,0.7)]">
                     <feature.icon className="w-8 h-8 mb-2" />
                     <span className="text-sm font-semibold">{feature.text}</span>
                   </div>
@@ -174,10 +173,10 @@ export function Hero() {
                   transition={{ duration: 0.5 }}
                   className="mb-8"
                 >
-                  <h2 className="text-white text-3xl md:text-4xl font-bold mb-2">
+                  <h2 className="text-white text-3xl md:text-4xl font-bold mb-2 drop-shadow-[0_3px_3px_rgba(0,0,0,0.7)]">
                     {heroImages[currentImage].title}
                   </h2>
-                  <p className="text-gray-300 text-xl">
+                  <p className="text-gray-100 text-xl drop-shadow-[0_2px_2px_rgba(0,0,0,0.7)]">
                     {heroImages[currentImage].subtitle}
                   </p>
                 </motion.div>
