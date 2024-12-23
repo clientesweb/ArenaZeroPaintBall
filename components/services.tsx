@@ -7,37 +7,37 @@ const services = [
     icon: Shield,
     title: "Equipamiento Profesional",
     description: "Marcadoras de última generación, máscaras de protección y equipamiento táctico completo para tu seguridad. Nuestro equipo es mantenido y actualizado regularmente para garantizar la mejor experiencia.",
-    image: "https://images.unsplash.com/photo-1560269507-c4e1d17d0f7c?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHBhaW50YmFsbHxlbnwwfHwwfHx8MA%3D%3D"
+    image: "https://images.unsplash.com/photo-1623939012339-c5f7430afe35?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
   },
   {
     icon: Users,
     title: "Eventos Grupales",
     description: "Organización de eventos corporativos, despedidas de soltero, cumpleaños y competencias. Ofrecemos paquetes personalizados para grupos de todos los tamaños, con opciones de catering y servicios adicionales.",
-    image: "https://images.unsplash.com/photo-1610140752669-c69e7e09367c?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHBhaW50YmFsbHxlbnwwfHwwfHx8MA%3D%3D"
+    image: "https://images.unsplash.com/photo-1609710228159-0fa9bd7c0827?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
   },
   {
     icon: Trophy,
     title: "Diferentes Modalidades",
     description: "Escenarios variados con distintas modalidades de juego: Captura la bandera, Eliminación, Supervivencia, Asalto a la base, y misiones personalizadas. Cada modalidad ofrece un desafío único para poner a prueba tus habilidades.",
-    image: "https://images.unsplash.com/photo-1551892589-865f69869476?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cGFpbnRiYWxsfGVufDB8fDB8fHww"
+    image: "https://images.unsplash.com/photo-1626253836391-9a96da7d3b9e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
   },
   {
     icon: Target,
     title: "Instrucción Táctica",
     description: "Instructores capacitados que te guiarán en estrategias y tácticas de juego para maximizar tu experiencia. Aprende técnicas de movimiento, comunicación en equipo y uso efectivo del terreno.",
-    image: "https://images.unsplash.com/photo-1599134842279-fe807d97f104?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fHBhaW50YmFsbHxlbnwwfHwwfHx8MA%3D%3D"
+    image: "https://images.unsplash.com/photo-1655635949348-953b0e3c140a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
   },
   {
     icon: Map,
     title: "Campos Temáticos",
     description: "Disfruta de nuestros campos temáticos que simulan diferentes entornos de combate: urbano, selvático, y fortificaciones. Cada campo ofrece desafíos únicos y requiere estrategias específicas.",
-    image: "https://images.unsplash.com/photo-1555072956-7758afb20e8f?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8cGFpbnRiYWxsfGVufDB8fDB8fHww"
+    image: "https://images.unsplash.com/photo-1533005346585-01796f94e3e0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
   },
   {
     icon: Calendar,
     title: "Torneos y Ligas",
     description: "Participa en nuestros torneos mensuales y únete a la liga de paintball de Calamuchita. Compite contra otros equipos, mejora tus habilidades y gana premios emocionantes.",
-    image: "https://images.unsplash.com/photo-1619204715997-1367fe5812f1?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fHBhaW50YmFsbHxlbnwwfHwwfHx8MA%3D%3D"
+    image: "https://images.unsplash.com/photo-1593766788306-28561086694b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
   }
 ]
 
