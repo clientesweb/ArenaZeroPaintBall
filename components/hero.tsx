@@ -71,21 +71,19 @@ export function Hero() {
             transition={{ duration: 1 }}
             className="absolute inset-0 w-full h-full"
           >
-            <div className="relative w-full h-full">
-              <Image
-                src={heroImages[currentImage].url}
-                alt={heroImages[currentImage].title}
-                fill
-                className="object-cover"
-                priority
-                quality={100}
-              />
-            </div>
+            <Image
+              src={heroImages[currentImage].url}
+              alt={heroImages[currentImage].title}
+              fill
+              className="object-cover"
+              priority
+              quality={100}
+            />
           </motion.div>
         </AnimatePresence>
 
         {/* Content Container */}
-        <div className="relative z-10 container mx-auto px-4 h-full flex flex-col justify-center items-center">
+        <div className="relative z-20 container mx-auto px-4 h-full flex flex-col justify-center items-center">
           {/* Main Content */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
