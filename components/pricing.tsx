@@ -1,6 +1,6 @@
 import { militaryFont } from '../utils/fonts'
 import { Check } from 'lucide-react'
-import { Button } from '@/components/ui/button'
+import { Button } from '../components/ui/button'
 import { WHATSAPP_NUMBER, WHATSAPP_MESSAGE } from '../utils/constants'
 
 const packages = [
