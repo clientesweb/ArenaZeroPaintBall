@@ -1,6 +1,7 @@
 import { Navigation } from '../components/navigation'
 import { Footer } from '../components/footer'
 import { WhatsAppButton } from '../components/whatsapp-button'
+import { Preloader } from '../components/preloader'
 import '../styles/globals.css'
 
 export const metadata = {
@@ -16,6 +17,7 @@ export default function RootLayout({
   return (
     <html lang="es" suppressHydrationWarning>
       <body className="min-h-screen bg-background font-sans antialiased">
+        <Preloader />
         <Navigation />
         <main>{children}</main>
         <WhatsAppButton />
@@ -24,4 +26,3 @@ export default function RootLayout({
     </html>
   )
 }
-
