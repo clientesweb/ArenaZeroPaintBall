@@ -50,7 +50,7 @@ export function Gallery() {
           GALERÍA DE COMBATE
         </h2>
         <div className="relative max-w-4xl mx-auto">
-          <div className="aspect-w-16 aspect-h-9">
+          <div className="h-[60vh] relative">
             <Image
               src={images[currentImage].src}
               alt={images[currentImage].alt}
@@ -61,24 +61,24 @@ export function Gallery() {
           </div>
           <button
             onClick={prevImage}
-            className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 transition-all"
+            className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 transition-all z-30"
             aria-label="Imagen anterior"
           >
             <ChevronLeft className="w-6 h-6" />
           </button>
           <button
             onClick={nextImage}
-            className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 transition-all"
+            className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 transition-all z-30"
             aria-label="Siguiente imagen"
           >
             <ChevronRight className="w-6 h-6" />
           </button>
         </div>
-        <div className="mt-8 grid grid-cols-3 md:grid-cols-6 gap-4">
+        <div className="mt-8 flex flex-wrap justify-center gap-4">
           {images.map((image, index) => (
             <div
               key={index}
-              className={`aspect-w-1 aspect-h-1 cursor-pointer ${
+              className={`w-20 h-20 cursor-pointer ${
                 index === currentImage ? 'ring-4 ring-white' : ''
               }`}
               onClick={() => setCurrentImage(index)}
