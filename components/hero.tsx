@@ -59,43 +59,8 @@ export function Hero() {
 
   return (
     <>
-      {/* Top Banner */}
-      <motion.div 
-        initial={{ y: -100, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.5 }}
-        className="bg-green-600 text-white py-3 px-4 relative overflow-hidden"
-      >
-        <div className="container mx-auto flex items-center justify-center text-center">
-          <motion.div
-            initial={{ x: '100%' }}
-            animate={{ x: '-100%' }}
-            transition={{
-              duration: 20,
-              repeat: Infinity,
-              ease: 'linear'
-            }}
-            className="whitespace-nowrap"
-          >
-            ¡OFERTA ESPECIAL! 30% DE DESCUENTO EN RESERVAS GRUPALES DE +10 PERSONAS • PAINTBALL NOCTURNO TODOS LOS SÁBADOS • 
-          </motion.div>
-          <motion.div
-            initial={{ x: '100%' }}
-            animate={{ x: '-100%' }}
-            transition={{
-              duration: 20,
-              repeat: Infinity,
-              ease: 'linear'
-            }}
-            className="whitespace-nowrap ml-4"
-          >
-            ¡OFERTA ESPECIAL! 30% DE DESCUENTO EN RESERVAS GRUPALES DE +10 PERSONAS • PAINTBALL NOCTURNO TODOS LOS SÁBADOS •
-          </motion.div>
-        </div>
-      </motion.div>
-
       {/* Hero Section */}
-      <section className="relative h-[calc(100vh-48px)]">
+      <section className="relative h-screen">
         {/* Background Image Container */}
         <AnimatePresence mode="wait">
           <motion.div
@@ -115,8 +80,6 @@ export function Hero() {
                 priority
                 quality={100}
               />
-              {/* Semi-transparent overlay for better text readability */}
-              <div className="absolute inset-0 bg-black/40" />
             </div>
           </motion.div>
         </AnimatePresence>
