@@ -1,3 +1,4 @@
+import { Navigation } from '../components/navigation'
 import { Footer } from '../components/footer'
 import { WhatsAppButton } from '../components/whatsapp-button'
 import { Preloader } from '../components/preloader'
@@ -17,6 +18,7 @@ export default function RootLayout({
     <html lang="es" suppressHydrationWarning>
       <body className="min-h-screen bg-background font-sans antialiased">
         <Preloader />
+        <Navigation />
         <main>{children}</main>
         <WhatsAppButton />
         <Footer />
@@ -24,4 +26,3 @@ export default function RootLayout({
     </html>
   )
 }
-
