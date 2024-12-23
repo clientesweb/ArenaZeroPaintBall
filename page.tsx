@@ -11,7 +11,7 @@ import { Preloader } from './components/preloader'
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="min-h-screen flex flex-col">
       <Preloader />
       <Navigation />
       <Hero />
@@ -25,4 +25,3 @@ export default function Home() {
     </div>
   )
 }
-
