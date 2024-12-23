@@ -26,29 +26,31 @@ export function Hero() {
   const whatsappUrl = `https://api.whatsapp.com/send/?phone=${WHATSAPP_NUMBER}&text=${encodeURIComponent(WHATSAPP_MESSAGE)}`
 
   return (
-    <div className="relative h-[90vh] overflow-hidden">
-      {/* Image Slider */}
-      <AnimatePresence initial={false} mode="wait">
-        <motion.div
-          key={currentImage}
-          initial={{ opacity: 0, scale: 1.1 }}
-          animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 1 }}
-          className="absolute inset-0 w-full h-full"
-        >
-          <Image
-            src={heroImages[currentImage]}
-            alt={`Paintball action ${currentImage + 1}`}
-            fill
-            className="object-cover object-center"
-            priority
-            quality={100}
-          />
-          {/* Gradient Overlay for better text readability */}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/70" />
-        </motion.div>
-      </AnimatePresence>
+    <section className="relative h-[90vh]">
+      {/* Background Image Slider */}
+      <div className="absolute inset-0">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={currentImage}
+            initial={{ opacity: 0, scale: 1.1 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1 }}
+            className="relative h-full"
+          >
+            <Image
+              src={heroImages[currentImage]}
+              alt={`Paintball action ${currentImage + 1}`}
+              fill
+              className="object-cover object-center"
+              priority
+              quality={100}
+            />
+          </motion.div>
+        </AnimatePresence>
+        {/* Gradient Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/70" />
+      </div>
 
       {/* Content */}
       <div className="relative z-10 h-full flex flex-col items-center justify-center text-white text-center px-4">
@@ -78,7 +80,7 @@ export function Hero() {
       </div>
 
       {/* Image Indicators */}
-      <div className="absolute bottom-8 left-0 right-0 flex justify-center space-x-4">
+      <div className="absolute bottom-8 left-0 right-0 z-20 flex justify-center space-x-4">
         {heroImages.map((_, index) => (
           <button
             key={index}
@@ -92,7 +94,7 @@ export function Hero() {
           />
         ))}
       </div>
-    </div>
+    </section>
   )
 }
 
