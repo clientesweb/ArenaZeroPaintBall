@@ -99,3 +99,7 @@
   animation: marquee 20s linear infinite;
 }
 
+:root {
+  --theme-color: #006400;
+}
+
