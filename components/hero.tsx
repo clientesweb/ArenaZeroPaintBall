@@ -69,8 +69,8 @@ export function Hero() {
         </motion.div>
       </AnimatePresence>
 
-      {/* Content Overlay */}
-      <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col items-center justify-center px-4">
+      {/* Content */}
+      <div className="absolute inset-0 flex flex-col items-center justify-center px-4 z-10">
         <motion.h1 
           className={`${militaryFont.className} text-6xl md:text-8xl text-white mb-6 tracking-wider text-center`}
           initial={{ opacity: 0, y: 20 }}
@@ -131,7 +131,7 @@ export function Hero() {
       </div>
 
       {/* Image Navigation */}
-      <div className="absolute bottom-8 left-0 right-0">
+      <div className="absolute bottom-8 left-0 right-0 z-20">
         <div className="flex justify-center gap-4">
           {heroImages.map((_, index) => (
             <button
