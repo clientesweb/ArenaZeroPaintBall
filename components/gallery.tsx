@@ -8,40 +8,28 @@ import { militaryFont } from '../utils/fonts'
 
 const images = [
   {
-    src: "https://images.unsplash.com/photo-1551892589-865f69869476?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cGFpbnRiYWxsfGVufDB8fDB8fHww",
-    alt: "Jugadores de paintball en acción",
-    width: 4,
-    height: 3
+    src: "/paintball.jpg",
+    alt: "Jugadores de paintball en acción"
   },
   {
-    src: "https://images.unsplash.com/photo-1560269507-c4e1d17d0f7c?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHBhaW50YmFsbHxlbnwwfHwwfHx8MA%3D%3D",
-    alt: "Marcadora de paintball de cerca",
-    width: 3,
-    height: 4
+    src: "/paintball1.jpg",
+    alt: "Marcadora de paintball de cerca"
   },
   {
-    src: "https://images.unsplash.com/photo-1619204715997-1367fe5812f1?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fHBhaW50YmFsbHxlbnwwfHwwfHx8MA%3D%3D",
-    alt: "Equipo de protección de paintball",
-    width: 4,
-    height: 3
+    src: "/paintball2.jpg",
+    alt: "Equipo de protección de paintball"
   },
   {
-    src: "https://images.unsplash.com/photo-1610140752669-c69e7e09367c?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHBhaW50YmFsbHxlbnwwfHwwfHx8MA%3D%3D",
-    alt: "Equipo de paintball en formación",
-    width: 3,
-    height: 2
+    src: "/paintball3.jpg",
+    alt: "Equipo de paintball en formación"
   },
   {
-    src: "https://images.unsplash.com/photo-1599134842279-fe807d97f104?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fHBhaW50YmFsbHxlbnwwfHwwfHx8MA%3D%3D",
-    alt: "Jugador de paintball en posición de disparo",
-    width: 3,
-    height: 4
+    src: "/paintball4.jpg",
+    alt: "Jugador de paintball en posición de disparo"
   },
   {
-    src: "https://images.unsplash.com/photo-1555072956-7758afb20e8f?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8cGFpbnRiYWxsfGVufDB8fDB8fHww",
-    alt: "Campo de paintball con obstáculos",
-    width: 16,
-    height: 9
+    src: "/paintball5.jpg",
+    alt: "Campo de paintball con obstáculos"
   }
 ]
 
@@ -70,11 +58,11 @@ export function Gallery() {
         <h2 className={`${militaryFont.className} text-4xl md:text-5xl text-white mb-12 text-center`}>
           GALERÍA DE COMBATE
         </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
           {images.map((image, index) => (
             <motion.div
               key={index}
-              className="relative cursor-pointer overflow-hidden rounded-lg shadow-lg"
+              className="relative cursor-pointer overflow-hidden rounded-lg shadow-lg aspect-square"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => openLightbox(index)}
@@ -82,9 +70,7 @@ export function Gallery() {
               <Image
                 src={image.src}
                 alt={image.alt}
-                width={400}
-                height={400 * (image.height / image.width)}
-                layout="responsive"
+                layout="fill"
                 objectFit="cover"
                 className="transition-transform duration-300 hover:scale-110"
               />
@@ -106,7 +92,7 @@ export function Gallery() {
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.8, opacity: 0 }}
-              className="relative max-w-4xl w-full h-full flex items-center justify-center"
+              className="relative w-full h-full max-w-2xl max-h-2xl flex items-center justify-center"
               onClick={(e) => e.stopPropagation()}
             >
               <Image
