@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { militaryFont } from '../utils/fonts'
 import { Button } from '@/components/ui/button'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import { ChevronRight, Target, Users, Trophy } from 'lucide-react'
 import { WHATSAPP_NUMBER, WHATSAPP_MESSAGE } from '../utils/constants'
 
@@ -22,9 +22,25 @@ const features = [
   }
 ]
 
+const heroMessages = [
+  {
+    title: 'Experiencia Táctica',
+    subtitle: 'Campos diseñados para el combate estratégico'
+  },
+  {
+    title: 'Equipamiento Pro',
+    subtitle: 'La mejor tecnología en paintball'
+  },
+  {
+    title: 'Acción Total',
+    subtitle: 'Adrenalina pura en cada partida'
+  }
+]
+
 export function Hero() {
   const videoRef = useRef<HTMLVideoElement>(null)
   const [isVideoLoaded, setIsVideoLoaded] = useState(false)
+  const [currentMessage, setCurrentMessage] = useState(0)
 
   useEffect(() => {
     if (videoRef.current) {
@@ -32,6 +48,12 @@ export function Hero() {
         console.log("Video autoplay failed:", error)
       })
     }
+
+    const messageInterval = setInterval(() => {
+      setCurrentMessage((prev) => (prev + 1) % heroMessages.length)
+    }, 5000)
+
+    return () => clearInterval(messageInterval)
   }, [])
 
   const whatsappUrl = `https://api.whatsapp.com/send/?phone=${WHATSAPP_NUMBER}&text=${encodeURIComponent(WHATSAPP_MESSAGE)}`
@@ -92,19 +114,24 @@ export function Hero() {
             ))}
           </motion.div>
 
-          {/* Description */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="mb-8"
-          >
-            <h2 className="text-white text-2xl md:text-3xl lg:text-4xl font-bold mb-2">
-              Experiencia Táctica
-            </h2>
-            <p className="text-gray-200 text-lg md:text-xl">
-              Campos diseñados para el combate estratégico
-            </p>
-          </motion.div>
+          {/* Changing Messages */}
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={currentMessage}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.5 }}
+              className="mb-8 h-24" // Fixed height to prevent layout shift
+            >
+              <h2 className="text-white text-2xl md:text-3xl lg:text-4xl font-bold mb-2">
+                {heroMessages[currentMessage].title}
+              </h2>
+              <p className="text-gray-200 text-lg md:text-xl">
+                {heroMessages[currentMessage].subtitle}
+              </p>
+            </motion.div>
+          </AnimatePresence>
 
           {/* CTA Button */}
           <motion.div
@@ -124,6 +151,24 @@ export function Hero() {
             </Button>
           </motion.div>
         </motion.div>
+
+        {/* Message Navigation */}
+        <div className="absolute bottom-8 left-0 right-0">
+          <div className="flex justify-center gap-4">
+            {heroMessages.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentMessage(index)}
+                className={`w-16 h-2 rounded-full transition-all duration-300 ${
+                  index === currentMessage 
+                    ? 'bg-green-500 w-24' 
+                    : 'bg-white/50 hover:bg-white/75'
+                }`}
+                aria-label={`Ver mensaje ${index + 1}`}
+              />
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   )
