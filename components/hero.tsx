@@ -60,29 +60,28 @@ export function Hero() {
   return (
     <section className="relative h-screen w-full overflow-hidden">
       {/* Slider */}
-      <div className="absolute inset-0">
-        <AnimatePresence initial={false} mode="wait">
-          <motion.div
-            key={currentImage}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.7 }}
-            className="absolute inset-0"
-          >
-            <Image
-              src={heroImages[currentImage].url}
-              alt={heroImages[currentImage].title}
-              fill
-              priority
-              className="object-cover"
-              sizes="100vw"
-            />
-            {/* Overlay gradient for better text readability */}
-            <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-black/30" />
-          </motion.div>
-        </AnimatePresence>
-      </div>
+      <AnimatePresence initial={false} mode="wait">
+        <motion.div
+          key={currentImage}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.7 }}
+          className="absolute inset-0"
+        >
+          <Image
+            src={heroImages[currentImage].url}
+            alt={heroImages[currentImage].title}
+            fill
+            priority
+            className="object-cover"
+            sizes="100vw"
+          />
+        </motion.div>
+      </AnimatePresence>
+
+      {/* Semi-transparent overlay for better text readability */}
+      <div className="absolute inset-0 bg-black/30" />
 
       {/* Content */}
       <div className="relative z-10 flex h-full flex-col items-center justify-center px-4">
