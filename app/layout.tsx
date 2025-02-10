@@ -11,11 +11,11 @@ export const metadata = {
   openGraph: {
     title: 'Arena Zero Paintball | Aventura en Calamuchita',
     description: 'Experimenta la emoción del paintball en el corazón de Calamuchita. Campos únicos y equipamiento de primera.',
-    url: 'https://www.arenazero.com',
+    url: 'https://arenazeropaintball.netlify.app/',
     siteName: 'Arena Zero Paintball',
     images: [
       {
-        url: 'https://www.arenazero.com/og-image.jpg',
+        url: 'https://arenazeropaintball.netlify.app/og-image.jpg',
         width: 1200,
         height: 630,
       },
@@ -27,10 +27,10 @@ export const metadata = {
     card: 'summary_large_image',
     title: 'Arena Zero Paintball | Adrenalina en Calamuchita',
     description: 'Descubre la mejor experiencia de paintball en Santa Rosa de Calamuchita. ¡Reserva tu aventura ahora!',
-    images: ['https://www.arenazero.com/twitter-image.jpg'],
+    images: ['https://arenazeropaintball.netlify.app/twitter-image.jpg'],
   },
   alternates: {
-    canonical: 'https://www.arenazero.com',
+    canonical: 'https://arenazeropaintball.netlify.app/',
   },
 }
 
